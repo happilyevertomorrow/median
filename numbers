@@ -1,0 +1,70 @@
+/*Program computes the median of a data file
+The median is the number that has the same number 
+of data elements greater than the number as there
+are less than the number.*/
+//Program by: Joanna Riascos
+
+#include <fstream>
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+
+
+void file_open (ifstream& fin);
+int get_number(ifstream& fin, int file);
+int main()
+{
+	
+	//Declare integers:
+	ifstream fin;
+	int numbers = 0, file_value = 0, median = 0, count = 0;
+	cout << "Please type the file value:"<<endl;
+	cin >> file_value;
+	//Open files:
+	fin.open ("file_value");
+	numbers = count;
+
+	
+	//While loop counts the members:
+	file_open(fin);
+	while(!fin.eof()) 
+{
+   fin >> numbers;
+   count++;
+}
+	//An if else statement to calculate the average
+	//of the two middle elements:
+	
+	if (numbers % 2 == 1 )
+	{
+		count = (count / 2) + 1;
+		median = get_number(fin, file_value);
+	}
+	
+	else
+	{
+    file_value = (numbers / 2 + 1);
+	median = (get_number(fin, file_value) + get_number(fin, 1)) / 2; 
+	}
+	cout << "The median is "<< median<< endl;
+	return 0;
+}
+	 void file_open(ifstream& fin)
+{ 
+
+  int counter = 0; int numbers = 0;
+  while (fin >> numbers) 
+  counter++; 
+  exit (1);
+} 
+ 
+int get_number(ifstream& fin, int file)
+{
+int number, counter = 0; 
+{ 
+fin >> number; 
+counter++; 
+} 
+ 
+return number; 
+} 
